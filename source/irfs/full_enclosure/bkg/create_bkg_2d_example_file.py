@@ -30,11 +30,32 @@ header['HDUCLAS1'] = 'RESPONSE', ''
 header['HDUCLAS2'] = 'BKG', ''
 header['HDUCLAS3'] = 'FULL-ENCLOSURE', ''
 header['HDUCLAS4'] = 'BKG_2D', ''
+tbhdu = fits.BinTableHDU(data, header, name='BACKGROUND')['OBS_ID'] = 31415 , 'Observation ID'
+header['LO_THRES'] = 0.1 , 'Low energy threshold [TeV]'
+header['HI_THRES'] = 50 , 'High energy threshold [TeV]'
+header['HDUDOC'] = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats', ''
+header['HDUVERS'] = '0.3', ''
+header['HDUCLASS'] = 'GADF', ''
+header['HDUCLAS1'] = 'RESPONSE', ''
+header['HDUCLAS2'] = 'BKG', ''
+header['HDUCLAS3'] = 'FULL-ENCLOSURE', ''
+header['HDUCLAS4'] = 'BKG_2D', ''
 
 
 tbhdu = fits.BinTableHDU(data, header, name='BACKGROUND')
 
 prihdu = fits.PrimaryHDU()
+header = fits.Header()
+header['OBS_ID'] = 31415 , 'Observation ID'
+header['LO_THRES'] = 0.1 , 'Low energy threshold [TeV]'
+header['HI_THRES'] = 50 , 'High energy threshold [TeV]'
+header['HDUDOC'] = 'https://github.com/open-gamma-ray-astro/gamma-astro-data-formats', ''
+header['HDUVERS'] = '0.3', ''
+header['HDUCLASS'] = 'GADF', ''
+header['HDUCLAS1'] = 'RESPONSE', ''
+header['HDUCLAS2'] = 'BKG', ''
+header['HDUCLAS3'] = 'FULL-ENCLOSURE', ''
+header['HDUCLAS4'] = 'BKG_2D', ''
 
 thdulist = fits.HDUList([prihdu, tbhdu])
 filename = 'bkg_2d_full_example.fits'
